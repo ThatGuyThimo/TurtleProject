@@ -108,4 +108,4 @@ end
 turtle.turnLeft()
 turtle.forward()
 end
-print "not enough feul"
+print "not enough fuel"
