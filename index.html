@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lua editor with Syntax highlighting</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lua.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+
+        <style>
+            .editor__input-area {
+                position: absolute;
+                top: 0;
+                left: 0;
+                outline: 0;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                font-family: monospace;
+                font-size: 24px;
+                color: #fff;
+                -webkit-text-fill-color: transparent;
+                white-space: nowrap;
+                overflow: auto;
+                background-color: #002b36;
+            }
+
+            .editor__output-area {
+                position: absolute;
+                overflow: hidden;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+
+            .editor__output-area-wrapper {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .editor__output-area-body {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                font-size: 24px;
+                background: transparent;
+                overflow: visible;
+            }
+        </style>
+    </head>
+    <script type="text/babel" data-presets="es2017,react">
+        hljs.initHighlightingOnLoad();
+
+        class Editor extends React.PureComponent {
+            state = {
+                text: '',
+                scrollTop: 0,
+                scrollLeft: 0,
+            };
+
+            highlight = () => {
+                if (this.codeElement) {
+                    hljs.highlightBlock(this.codeElement);
+                }
+            };
+
+            onChangeText = ({target}) => {
+                this.setState({text: target.value}, this.highlight);
+            };
+
+            onScroll = ({target}) => {
+                this.setState({
+                    scrollTop: target.scrollTop,
+                    scrollLeft: target.scrollLeft,
+                });
+            };
+
+            setCodeElement = (element) => {
+                this.codeElement = element;
+            }
+
+            render() {
+                return (
+                    <React.Fragment>
+                        <textarea
+                            className="editor__input-area"
+                            spellCheck={false}
+                            autoComplete="off"
+                            autoCorrect="off"
+                            autoCapitalize="none"
+                            value={this.state.text}
+                            onChange={this.onChangeText}
+                            onScroll={this.onScroll}
+                        />
+                        <div className="editor__output-area">
+                            <pre
+                                className="editor__output-area-wrapper"
+                                style={{
+                                    top: -this.state.scrollTop,
+                                    left: -this.state.scrollLeft,
+                                }}
+                            >
+                                <code
+                                    ref={this.setCodeElement}
+                                    className="editor__output-area-body lua"
+                                >
+                                    {this.state.text}
+                                </code>
+                            </pre>
+                        </div>
+                    </React.Fragment>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <Editor />,
+            document.getElementById('container')
+        );
+    </script>
+    </head>
+    <body>
+        <div id="container"></div>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+.editor__input-area {
+    position: absolute;
+    top: 12.5%;
+    left: 12.5%;
+    outline: 0;
+    margin: .5px;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    width: 75%;
+    height: 50%;
+    font-family: monospace;
+    font-size: 14px;
+    color: #fff;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    overflow: auto;
+    background-color: #002b36;
+}
+
+.editor__output-area {
+    position: absolute;
+    overflow: hidden;
+    top: 12.5%;
+    left: 12.5%;
+    width: 75%;
+    height: 50%;
+    pointer-events: none;
+}
+
+.editor__output-area-wrapper {
+    position: absolute;
+    left: 0;
+    width: 75%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+.editor__output-area-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    background: transparent;
+    overflow: visible;
+}
+
+.editor__button {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    outline: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    width: 50%;
+    height: 40px;
+    /* height: 50%; */
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #171717;
+    cursor: pointer;
+}

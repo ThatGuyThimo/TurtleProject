@@ -1,9 +1,9 @@
-print "Checking Feul.."
+print "Checking Fuel.."
 
 if turtle.getFuelLevel() < 500  then
     fuel =  turtle.getFuelLevel()
     turtle.refuel(1)
-    print "Refeuling"
+    print "Refueling"
     if turtle.getFuelLevel() == fuel then
         print "No fuel!!"
     end

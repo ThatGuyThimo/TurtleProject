@@ -1,0 +1,36 @@
+{
+  "name": "remoteturtle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1",
+    "highlight.js": "^10.5.0",
+    "ngrok": "^3.4.0",
+    "nodemon": "^2.0.6",
+    "ws": "^7.4.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/ws": "^7.4.0",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"cd ./frontend && npm run start\"",
+    "server": "nodemon ./server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThatGuyThimo/TurtleProject.git"
+  },
+  "keywords": [
+    "turtle"
+  ],
+  "author": "Thimo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThatGuyThimo/TurtleProject/issues"
+  },
+  "homepage": "https://github.com/ThatGuyThimo/TurtleProject#readme"
+}
