@@ -11,13 +11,14 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ port: 8080 });
 
 wss.on('connection', (ws: WebSocket) => {
-  console.log(ws);
+  // console.log(ws);
   ws.on('message', (message: string) => {
     console.log('received: %s', message);
-    ws.send(`hello, you sent -> ${message}`);
+    // ws.send(`hello, you sent -> ${message}`);
+    ws.send('turtle_detect');
   });
 
-  ws.send('Hi there, I am a WebSocket server');
+  // ws.send('Hi there, I am a WebSocket server');
 });
 (async () => {
   const url = await connect(8080);

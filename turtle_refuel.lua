@@ -1,4 +1,4 @@
-print "Checking Fuel.."
+print "Checking fuel.."
 
 if turtle.getFuelLevel() < 500  then
     fuel =  turtle.getFuelLevel()

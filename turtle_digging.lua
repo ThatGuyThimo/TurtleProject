@@ -5,7 +5,7 @@ turtle.detect()
 if turtle.detect() == true then
     local success, data = turtle.inspect()
     if success then
-        print("Block front: ", data.name)
+        print("Block front: ", data.name, data.metadata)
         turtle.dig()
         -- print("Block metadata: ", data.metadata)
     end
@@ -14,7 +14,7 @@ turtle.detectUp()
 if turtle.detectUp() == true then
     local success, data = turtle.inspectUp()
     if success then
-        print("Block up: ", data.name)
+        print("Block up: ", data.name, data.metadata)
         if data.name == "minecraft:iron_ore"  --[[make an array later]] then
             print "digging"
             turtle.digUp()
@@ -37,7 +37,7 @@ turtle.detectDown()
 if turtle.detectDown() == true then
     local success, data = turtle.inspectDown()
     if success then
-        print("Block down: ", data.name)
+        print("Block down: ", data.name, data.metadata)
         if data.name == "minecraft:iron_ore"  --[[make an array later]] then
             print "digging"
             turtle.digDown()
@@ -61,7 +61,7 @@ turtle.detect()
 if turtle.detect() == true then
     local success, data = turtle.inspect()
     if success then
-        print("Block left: ", data.name)
+        print("Block left: ", data.name, data.metadata)
         if data.name == "minecraft:iron_ore"  --[[make an array later]] then
             print "digging"
             turtle.dig()
@@ -86,7 +86,7 @@ turtle.detect()
 if turtle.detect() == true then
     local success, data = turtle.inspect()
     if success then
-        print("Block right: ", data.name)
+        print("Block right: ", data.name, data.metadata)
         if data.name == "minecraft:iron_ore"  --[[make an array later]] then
             print "digging"
             turtle.dig()
