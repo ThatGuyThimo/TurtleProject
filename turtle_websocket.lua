@@ -1,6 +1,6 @@
 -- require("turtle_wsconnect")
 print "starting websocket"
-ws, err = http.websocket("ws://c8fe0ce166e1.ngrok.io")
+ws, err = http.websocket("ws://47a434ec73e7.ngrok.io")
 if ws then
    ws.send("turtle_websocket")
    local event,url,content = os.pullEvent("websocket_message")
